@@ -1,31 +1,31 @@
-# docker-jira-postgres
+# core-postgres
 
-A PostgreSQL container ready to be used with [docker-jira](https://github.com/ahaasler/docker-jira "docker-jira repo").
+A PostgreSQL container ready to be used with [docker-jira](https://github.com/cyclic/docker-jira "docker-jira repo").
 
 ## Usage
 
 1. Create and name the database container:
 
 	```bash
-docker run --name jira-postgres -d ahaasler/jira-postgres
+docker run --name jira-postgres -d cyclic/core-postgres
 	```
 
 2. Use it in the Jira container:
 
 	```bash
-docker run --name jira --link jira-postgres:jira-postgres -d -p 8080:8080 ahaasler/jira
+docker run --name jira --link core-postgres:jira-postgres -d -p 8080:8080 cyclic/docker-jira
 	```
 
 3. Connect your Jira instance following the Atlassian documentation: [Configure your JIRA server to connect to your PostgreSQL database](https://confluence.atlassian.com/display/JIRA/Connecting+JIRA+to+PostgreSQL#ConnectingJIRAtoPostgreSQL-3.ConfigureyourJIRAservertoconnecttoyourPostgreSQLdatabase "Configure your JIRA server to connect to your PostgreSQL database").
 	* _Database Type_: PostgreSQL.
-	* _Hostname_: jira-postgres (the name of the link between containers).
+	* _Hostname_: core-postgres (the name of the link between containers).
 	* _Port_: 5432.
 	* _Database_: jiradb (or the one specified as JIRA_DB_NAME).
 	* _Username_: jira (or the one specified as JIRA_DB_USER).
 	* _Password_: password (or the one specified as JIRA_DB_PASS).
 	* _Schema_: public
 
-> See [docker-jira](https://github.com/ahaasler/docker-jira "docker-jira repo") for more information on the jira container.
+> See [docker-jira](https://github.com/cyclic/docker-jira "docker-jira repo") for more information on the jira container.
 
 ### Parameters
 
@@ -38,7 +38,7 @@ You can use these environment variables to configure your jira postgres instance
 They should be passed to the `docker run` command:
 
 ```bash
-docker run --name jira-postgres -d -e JIRA_DB_NAME=jiradatabase -e JIRA_DB_USER=jiradbuser -e JIRA_DB_PASS=p455w0rd ahaasler/jira-postgres
+docker run --name core-postgres -d -e JIRA_DB_NAME=jiradatabase -e JIRA_DB_USER=jiradbuser -e JIRA_DB_PASS=p455w0rd cyclic/core-postgres
 ```
 
 ## Thanks
