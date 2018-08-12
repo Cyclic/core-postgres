@@ -6,14 +6,14 @@ A PostgreSQL container ready to be used with [docker-jira](https://github.com/cy
 
 1. Create and name the database container:
 
-	```bash
-docker run --name jira-postgres -d cyclic/core-postgres
+	```bash 
+	docker run --name jira-postgres -d cyclic/core-postgres
 	```
 
 2. Use it in the Jira container:
 
 	```bash
-docker run --name jira --link core-postgres:jira-postgres -d -p 8080:8080 cyclic/docker-jira
+	docker run --name jira --link core-postgres:jira-postgres -d -p 8080:8080 cyclic/docker-jira
 	```
 
 3. Connect your Jira instance following the Atlassian documentation: [Configure your JIRA server to connect to your PostgreSQL database](https://confluence.atlassian.com/display/JIRA/Connecting+JIRA+to+PostgreSQL#ConnectingJIRAtoPostgreSQL-3.ConfigureyourJIRAservertoconnecttoyourPostgreSQLdatabase "Configure your JIRA server to connect to your PostgreSQL database").
