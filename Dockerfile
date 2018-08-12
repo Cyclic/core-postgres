@@ -1,5 +1,5 @@
 FROM postgres:latest
-MAINTAINER Adrian Haasler García <dev@adrianhaasler.com>
+MAINTAINER Thomas Goddard <ohmygoddard@gmail.com>
 
 # Add authentication initialization file
 COPY authentication.sh /docker-entrypoint-initdb.d/authentication.sh
